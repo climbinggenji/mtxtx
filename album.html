@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+    <title>图行天下</title>
+    <link rel="stylesheet" href="css/common.min.css">
+    <link rel="stylesheet" href="//js.photophoto.cn/m/css/iconfont/iconfont.css">
+</head>
+<body>
+    <div class="my-album">
+        <div class="head">
+            <a id="back" href="javascript:history.go(-1)"><i class="iconfont icon-fanhui"></i></a>
+            <div class="head-title">我的收藏</div>
+        </div>
+        <div class="album-list">
+            <a href="album-detail.html">
+                <div class="album-item">
+                    <div class="pic"><img src="//js.photophoto.cn/m/img/album.png"></div>
+                    <div class="album-title">默认收藏夹(12)</div>
+                </div>
+            </a>
+            <a href="album-detail.html">
+                <div class="album-item">
+                    <div class="pic"><img src="//js.photophoto.cn/m/img/album.png"></div>
+                    <div class="album-title">asddsa(12)</div>
+                </div>
+            </a>
+            <a href="album-detail.html">
+                <div class="album-item">
+                    <div class="pic"><img src="//js.photophoto.cn/m/img/album.png"></div>
+                    <div class="album-title">默认12312收藏夹(12)</div>
+                </div>
+            </a>
+            <div id="handle-create" class="album-item album-create">
+                <div class="pic"><i class="iconfont icon-jia"></i></div>
+                <div class="album-title">新建收藏夹</div>
+            </div>
+        </div>
+    </div>
+    <div id="new-album" class="new-album">
+        <div class="new-album-content">
+            <div class="close">
+                <i class="iconfont icon-cha"></i>
+            </div>
+            <div class="title">新建收藏夹</div>
+            <div class="line">
+                <input type="text" placeholder="输入标题">
+            </div>
+            <div class="line">
+                <div class="btn">新建</div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script>
+        $('#back').click(function() {
+            if (document.referrer == '') {
+                $('#back').attr('href', '/index.html')
+            }
+        });
+        $('.album-item').each(function() {
+            if ($(this).find('img').height()>$(this).find('img').width) {
+                $(this).find('img').css('height', '100%');
+            } else {
+                $(this).find('img').css('width', '100%');
+            }
+        });
+        $('#handle-create').on('click', function() {
+            popsOn();
+            $('#new-album').css('display', 'flex');
+        });
+        $('#new-album').on('click', '.close', function() {
+            $('#new-album').hide();
+            popsOff();
+        });
+    </script>
+</body>
+</html>

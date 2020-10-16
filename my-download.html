@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+    <title>图行天下</title>
+    <link rel="stylesheet" href="css/common.min.css">
+    <link rel="stylesheet" href="//js.photophoto.cn/m/css/iconfont/iconfont.css">
+</head>
+<body>
+    <div class="album-detail">
+        <div class="head">
+            <a id="back" href="javascript:history.go(-1)"><i class="iconfont icon-fanhui"></i></a>
+            <div class="head-title">下载记录</div>
+        </div>
+        <div class="Masonary-contain">
+            <div id="Masonary">
+                <div class="gutter-sizer"></div>
+                <div class="Masonary-item">
+                    <a href="secondary-detail.html">
+                        <div class="Masonary-item-box">
+                            <div class="img">
+                                <img src="//js.photophoto.cn/web/v1/imgs/ex1.png">
+                            </div>
+                            <div class="text">
+                                简约开学季简约开学季简约开学季
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="Masonary-item">
+                    <a href="secondary-detail.html">
+                        <div class="Masonary-item-box">
+                            <div class="img">
+                                <img src="//js.photophoto.cn/web/v1/imgs/ex3.png">
+                            </div>
+                            <div class="text">
+                                简约开学季简约开学季简约开学季
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="Masonary-item">
+                    <a href="secondary-detail.html">
+                        <div class="Masonary-item-box">
+                            <div class="img">
+                                <img src="//js.photophoto.cn/web/v1/imgs/ex8.png">
+                            </div>
+                            <div class="text">
+                                简约开学季简约开学季简约开学季
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="Masonary-item">
+                    <a href="secondary-detail.html">
+                        <div class="Masonary-item-box">
+                            <div class="img">
+                                <img src="//js.photophoto.cn/web/v1/imgs/ex6.png">
+                            </div>
+                            <div class="text">
+                                简约开学季简约开学季简约开学季
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="Masonary-item">
+                    <a href="secondary-detail.html">
+                        <div class="Masonary-item-box">
+                            <div class="img">
+                                <img src="//js.photophoto.cn/web/v1/imgs/ex5.png">
+                            </div>
+                            <div class="text">
+                                简约开学季简约开学季简约开学季
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/masonary.min.js"></script>
+    <script>
+        $('#back').click(function() {
+            if (document.referrer == '') {
+                $('#back').attr('href', '/index.html')
+            }
+        });
+        $(window).load(function() {
+            $('#Masonary').masonry({
+                itemSelector: '.Masonary-item',
+                gutter: '.gutter-sizer',
+                percentPosition: true
+            });
+        });
+    </script>
+</body>
+</html>
