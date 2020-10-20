@@ -498,4 +498,13 @@ a { text-decoration: none; color: #333; }
 .my-vip .vip-list-main .item-main .r .text .price::before { content: '￥'; font-size: 0.3rem; }
 
 .my-vip .vip-list-main .item-main .r .tag { margin-top: 0.3rem; font-size: 0.32rem; color: #999; display: flex; justify-content: space-between; }
+
+#loading { display: none; text-align: center; }
+
+#loading::after { display: inline-block; content: '\e61f'; color: #7BC77D; font-family: 'iconfont'; animation: demo 1s ease-in-out infinite; -webkit-animation: demo 1s ease-in-out infinite; -moz-animation: demo 1s ease-in-out infinite; -ms-animation: demo 1s ease-in-out infinite; }
+
+@keyframes demo { 0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); } }
 /*# sourceMappingURL=common.min.css.map */

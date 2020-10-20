@@ -1,4 +1,13 @@
 var bodyscroll = 0;
+var loading = false;
+
+var base_obj = {
+    url: 'http://192.168.3.5:8888/'
+}
+
+const common_api = {
+    more_list: base_obj.url + 'test/list/more'
+}
 
 // throttle
 function throttle(func, wait, options) {
@@ -39,6 +48,45 @@ function throttle(func, wait, options) {
     };
 
     return throttled;
+}
+
+// ajax请求封装
+var http = {
+    post: function(url, params, successCallback) {
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: params,
+            dataType: 'json',
+            success: function(res) {
+                if (res.code == 200) {
+                } else {
+                    // tips(res.msg, 'error');
+                }
+                if (successCallback) {
+                    successCallback(res);
+                }
+            }
+        });
+    },
+    get: function(url, params, successCallback) {
+        $.ajax({
+            type: 'GET',
+            url: url,
+            data: params,
+            dataType: 'json',
+            success: function(res) {
+                if (res.code == 200) {
+                    console.log(132)
+                    if (successCallback) {
+                        successCallback(res);
+                    }
+                } else {
+                    // tips(res.msg, 'error');
+                }
+            }
+        })
+    }
 }
 
 function showTop() {
@@ -91,6 +139,15 @@ function popsOn() {
 function popsOff() {
     $("body").removeClass('fixed');
     $(window).scrollTop(-bodyscroll);
+}
+
+// 瀑布流初始化
+function initMasonry() {
+    $('#Masonary').masonry({
+        itemSelector: '.Masonary-item',
+        gutter: '.gutter-sizer',
+        percentPosition: true
+    });
 }
 
 $().ready(function() {
@@ -166,6 +223,30 @@ $().ready(function() {
             $('#vip-service').hide();
         });
     });
+
+    // jquery ajax 错误处理
+    $(document).ajaxError(
+        //所有ajax请求异常的统一处理函数，处理
+        function (event, xhr, options, exc) {
+            if (xhr.status == 'undefined') {
+                return;
+            }
+            switch (xhr.status) {
+                case 403:
+                    // 未授权异常
+                    console.log("系统拒绝：您没有访问权限。");
+                    break;
+
+                case 404:
+                    console.log("您访问的资源不存在。");
+                    break;
+
+                default:
+                    // tips(xhr.statusText);
+                    break;
+            }
+        }
+    );
 });
 
 $(window).load(function() {

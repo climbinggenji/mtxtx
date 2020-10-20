@@ -1693,3 +1693,24 @@ a {
         }
     }
 }
+
+// 加载动画
+#loading {
+    display: none;
+    text-align: center;
+    &::after {
+        display: inline-block;
+        content: '\e61f';
+        color: #7BC77D;
+        font-family: 'iconfont';
+        @keyframes demo {
+            0% {
+                @include transform(rotate(0));
+            }
+            100% {
+                @include transform(rotate(360deg));
+            }
+        }
+        @include animation(demo 1s ease-in-out infinite);
+    }
+}
